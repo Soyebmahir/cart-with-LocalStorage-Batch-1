@@ -1,13 +1,15 @@
 /* eslint-disable react/prop-types */
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 
 import "./Product.css";
 
 const Product = (props) => {
-  console.log(props);
+  // console.log(props);
 
   // eslint-disable-next-line react/prop-types
   const { name, price, seller, ratings, img } = props.product;
-  //   let { addtocart } = props.addtocart;
+  let { addtocart } = props;
 
   return (
     <div className="product">
@@ -18,11 +20,12 @@ const Product = (props) => {
       <h6>Rating: {ratings}</h6>
       <button
         onClick={() => {
-          props.addtocart(props.product);
+          addtocart(props.product);
         }}
         className="btn-cart"
       >
         Add To Cart
+        <FontAwesomeIcon icon={faShoppingCart} />
       </button>
     </div>
   );
