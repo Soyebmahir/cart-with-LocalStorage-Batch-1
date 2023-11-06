@@ -1,11 +1,9 @@
-import React from "react";
+/* eslint-disable react/prop-types */
+
 import "./Product.css";
 
-const Product = (props) => {
-  console.log(props);
-
-  const { name, price, seller, ratings, img } = props.product;
-  //   let { addtocart } = props.addtocart;
+const Product = ({ addtocart, product }) => {
+  const { name, price, seller, ratings, img } = product;
 
   return (
     <div className="product">
@@ -16,7 +14,7 @@ const Product = (props) => {
       <h6>Rating: {ratings}</h6>
       <button
         onClick={() => {
-          props.addtocart(props.product);
+          addtocart(product);
         }}
         className="btn-cart"
       >
